@@ -1,0 +1,244 @@
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    width:100%;
+    height:100vh;
+
+    overflow:hidden;
+
+    font-family:'Poppins',sans-serif;
+
+    position:relative;
+
+}
+
+
+/* ==========================
+   BACKGROUND
+========================== */
+
+.background{
+
+    position:fixed;
+    inset:0;
+
+    background:url("photo9.jpg") center center/cover no-repeat;
+
+    z-index:-3;
+
+}
+
+.overlay{
+
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    z-index:-2;
+
+}
+
+
+/* ==========================
+   LETTER
+========================== */
+
+.letter-container{
+
+    width:100%;
+    height:100vh;
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    align-items:center;
+
+    padding-right:7%;
+
+}
+
+.paper{
+
+    width:430px;
+
+    max-width:90%;
+
+    height:78vh;
+
+    background:#f7ecd0;
+
+    border-radius:8px;
+
+    padding:35px;
+
+    overflow-y:auto;
+
+    box-shadow:
+    0 15px 50px rgba(0,0,0,.45);
+
+    transform:rotate(-3deg);
+
+    position:relative;
+
+    animation:floatPaper 5s ease-in-out infinite;
+
+}
+
+
+/* Old paper effect */
+
+.paper::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top left,
+    rgba(120,80,30,.12),transparent 35%),
+
+    radial-gradient(circle at bottom right,
+    rgba(120,80,30,.15),transparent 40%);
+
+    pointer-events:none;
+
+}
+
+.paper-top{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+.paper-top h1{
+
+    font-family:'Caveat',cursive;
+
+    font-size:42px;
+
+    color:#5b3113;
+
+}
+
+
+/* ==========================
+   LETTER TEXT
+========================== */
+
+#letterText{
+
+    color:#3b2612;
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    white-space:pre-wrap;
+
+    font-family:'Caveat',cursive;
+
+}
+
+
+/* ==========================
+   PEN
+========================== */
+
+.pen{
+
+    position:absolute;
+
+    width:90px;
+
+    right:25px;
+
+    top:90px;
+
+    transform:rotate(25deg);
+
+    transition:.08s linear;
+
+    pointer-events:none;
+
+}
+
+
+/* ==========================
+   WAX SEAL
+========================== */
+
+.seal{
+
+    width:65px;
+    height:65px;
+
+    border-radius:50%;
+
+    background:#b10b1d;
+
+    color:white;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    margin:35px auto 10px;
+
+    font-size:24px;
+
+    opacity:0;
+
+    transform:scale(.5);
+
+    transition:.6s;
+
+    box-shadow:0 0 20px rgba(0,0,0,.3);
+
+}
+
+.seal.show{
+
+    opacity:1;
+
+    transform:scale(1);
+
+}
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+#nextBtn{
+
+    position:fixed;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    padding:15px 38px;
+
+    border:none;
+
+    border-radius:40px;
+
+    background:rgba(255,255,255,.18);
+
+   
