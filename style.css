@@ -1,0 +1,291 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#000;
+    color:#fff;
+    overflow:hidden;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* ===========================
+   BACKGROUND
+=========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    z-index:-10;
+    background:linear-gradient(to bottom,#000,#120010);
+}
+
+.stars{
+    position:absolute;
+    width:100%;
+    height:100%;
+    background-image:
+    radial-gradient(#fff 1px,transparent 1px),
+    radial-gradient(#ff7aa8 1px,transparent 1px);
+    background-size:70px 70px;
+    background-position:0 0,35px 35px;
+    opacity:.45;
+    animation:twinkle 5s infinite alternate;
+}
+
+@keyframes twinkle{
+    from{opacity:.2;}
+    to{opacity:.8;}
+}
+
+/* ===========================
+   PETALS
+=========================== */
+
+.petals{
+    position:absolute;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+}
+
+.petals::before,
+.petals::after{
+    content:"🌸";
+    position:absolute;
+    font-size:30px;
+    animation:petalFall 12s linear infinite;
+}
+
+.petals::before{
+    left:18%;
+}
+
+.petals::after{
+    left:72%;
+    animation-delay:5s;
+}
+
+@keyframes petalFall{
+    from{
+        transform:translateY(-120px) rotate(0deg);
+    }
+    to{
+        transform:translateY(120vh) rotate(360deg);
+    }
+}
+
+/* ===========================
+   MAIN CONTENT
+=========================== */
+
+main{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:25px;
+    position:relative;
+    z-index:10;
+}
+
+.typing-box{
+    width:100%;
+    max-width:700px;
+    margin-bottom:25px;
+}
+
+#typing{
+    font-size:28px;
+    line-height:1.6;
+    color:#ffe4f0;
+    min-height:120px;
+    border-right:2px solid #ff69b4;
+    display:inline-block;
+    animation:cursorBlink .8s infinite;
+}
+
+@keyframes cursorBlink{
+    50%{
+        border-color:transparent;
+    }
+}
+
+#hiddenNote{
+    display:none;
+    margin-top:20px;
+    max-width:450px;
+    padding:25px;
+    background:rgba(255,255,255,.08);
+    border-radius:20px;
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,.2);
+    box-shadow:0 0 20px rgba(255,105,180,.25);
+}
+
+#hiddenNote.show{
+    display:block;
+    animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+/* ===========================
+   BUTTONS
+=========================== */
+
+.openBtn{
+    display:none;
+    margin-top:30px;
+    padding:15px 35px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(45deg,#ff4f9a,#b56cff);
+    color:#fff;
+    font-size:18px;
+    font-family:'Poppins',sans-serif;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(255,105,180,.8);
+    transition:.3s;
+    position:relative;
+    z-index:100;
+}
+.openBtn:hover{
+    transform:scale(1.08);
+    box-shadow:0 0 30px #ff69b4;
+}
+
+.openBtn:active{
+    transform:scale(.95);
+}
+
+.hidden{
+    display:none;
+}
+   .show-btn{
+    display:inline-block !important;
+   }
+
+
+/* ===========================
+   TEXT
+=========================== */
+
+h1{
+    font-size:32px;
+    color:#ffb6d9;
+    text-shadow:0 0 10px #ff69b4,0 0 20px #ff1493;
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:24px;
+    color:#fff;
+}
+
+p{
+    font-size:16px;
+    line-height:1.8;
+    color:#ffd9e8;
+}
+
+/* ===========================
+   SPARKLES
+=========================== */
+
+.sparkles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:1;
+}
+
+.sparkles span{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    border-radius:50%;
+    box-shadow:0 0 10px white,0 0 20px #ff69b4;
+    animation:sparkleMove 4s linear infinite;
+}
+
+.sparkles span:nth-child(1){top:10%;left:20%;}
+.sparkles span:nth-child(2){top:25%;left:80%;animation-delay:1s;}
+.sparkles span:nth-child(3){top:50%;left:40%;animation-delay:2s;}
+.sparkles span:nth-child(4){top:70%;left:70%;animation-delay:3s;}
+.sparkles span:nth-child(5){top:85%;left:15%;animation-delay:1.5s;}
+.sparkles span:nth-child(6){top:35%;left:60%;animation-delay:2.5s;}
+
+@keyframes sparkleMove{
+    0%{
+        transform:translateY(0) scale(.5);
+        opacity:0;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-80px) scale(1.3);
+        opacity:0;
+    }
+}
+
+/* ===========================
+   FADE EFFECT
+=========================== */
+
+#fade{
+    position:fixed;
+    inset:0;
+    background:#000;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 1s;
+    z-index:9999;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:600px){
+
+    #typing{
+        font-size:22px;
+    }
+
+    p{
+        font-size:15px;
+    }
+
+    .openBtn{
+        width:90%;
+        font-size:16px;
+        padding:14px;
+    }
+
+    #hiddenNote{
+        width:95%;
+    }
+          }
