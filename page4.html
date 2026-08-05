@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Our Memory Box ❤️</title>
+
+<link rel="stylesheet" href="page4.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Background -->
+
+<div class="background">
+
+<div class="stars"></div>
+
+<div class="petals"></div>
+
+</div>
+
+<!-- Intro -->
+
+<div id="intro">
+
+<h1 id="typingTitle"></h1>
+
+<p id="typingText"></p>
+
+</div>
+
+<!-- Memory Box -->
+
+<div id="memoryBox" class="hidden">
+
+<div class="box-lid"></div>
+
+<div class="box-body">
+
+<h2>📦 Our Memory Box</h2>
+
+<p class="boxText">
+
+Open only if you're ready to relive our memories... ❤️
+
+</p>
+
+<button id="openBoxBtn" onclick="openMemoryBox()">
+
+Open The Box 💌
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Polaroids -->
+
+<div id="photoArea" class="hidden">
+
+<div class="photo photo1" onclick="openPhoto(1)">
+
+<img src="photo1.jpg" alt="Photo 1">
+
+<p>The First Talk 💌</p>
+
+</div>
+
+<div class="photo photo2" onclick="openPhoto(2)">
+
+<img src="photo2.jpg" alt="Photo 2">
+
+<p>The Laugh 😂</p>
+
+</div>
+
+<div class="photo photo3" onclick="openPhoto(3)">
+
+<img src="photo3.jpg" alt="Photo 3">
+
+<p>Matching PFPs 💞</p>
+
+</div>
+
+<div class="photo photo4" onclick="openPhoto(4)">
+
+<img src="photo4.jpg" alt="Photo 4">
+
+<p>Flirty Talks 🤭</p>
+
+</div>
+<div class="photo photo5" onclick="openPhoto(5)">
+    <img src="photo5.jpg" alt="Photo 5">
+    <p>Ordinary Days 🌸</p>
+</div>
+
+<div class="photo photo6" onclick="openPhoto(6)">
+    <img src="photo6.jpg" alt="Photo 6">
+    <p>Understanding Moments 🫶</p>
+</div>
+
+<div class="photo photo7" onclick="openPhoto(7)">
+    <img src="photo7.jpg" alt="Photo 7">
+    <p>Us ❤️</p>
+</div>
+
+<div class="photo photo8" onclick="openPhoto(8)">
+    <img src="photo8.jpg" alt="Photo 8">
+    <p>Reserved For Our Future 🌍❤️</p>
+</div>
+
+</div>
+
+<!-- Photo Viewer -->
+
+<div id="viewer" class="hidden">
+
+    <div class="viewer-card">
+
+        <button class="closeBtn" onclick="closeViewer()">
+            ✕
+        </button>
+
+        <img id="viewerImage" src="" alt="Memory">
+
+        <h2 id="viewerTitle"></h2>
+
+        <p id="viewerCaption"></p>
+
+        <button id="nextPageBtn" onclick="nextPage()">
+            Turn The Page ➜
+        </button>
+
+    </div>
+
+</div>
+
+<script src="page4.js"></script>
+
+</body>
+
+</html>
