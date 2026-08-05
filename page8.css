@@ -10,41 +10,30 @@
 
 body{
 
-
     width:100%;
-    min-height:100vh;
-    overflow-y:auto;
-    overflow-x:hidden;
-    }
+    height:100vh;
+
+    overflow:hidden;
 
     font-family:'Poppins',sans-serif;
 
-    background:linear-gradient(to bottom,#020111,#081b38,#000);
+    background:linear-gradient(to bottom,#020111,#07162f,#000);
 
     color:white;
 
 }
 
 /* ==========================
-   BACKGROUND
+   STARRY BACKGROUND
 ========================== */
 
-.background{
+#stars{
 
     position:fixed;
 
     inset:0;
 
     z-index:-2;
-
-}
-
-#stars{
-
-    position:absolute;
-
-    width:100%;
-    height:100%;
 
 }
 
@@ -59,50 +48,71 @@ body{
 
     border-radius:50%;
 
-    animation:twinkle 2.5s infinite alternate;
+    animation:twinkle 3s infinite alternate;
 
 }
 
 /* ==========================
-   MAIN CONTAINER
+   MAIN SCENE
 ========================== */
 
-.container{
+#scene{
 
-    width:90%;
+    position:absolute;
 
-    max-width:750px;
+    inset:0;
 
-    margin:auto;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
 
     text-align:center;
 
-    margin-top:40px;
-padding-bottom:140px;
+    padding:30px;
 
 }
 
-#intro{
+#message{
+
+    max-width:800px;
+
+    white-space:pre-line;
+
+    line-height:1.8;
+
+    font-size:34px;
+
+    font-weight:400;
+
+    opacity:0;
+
+    transition:1.5s;
+
+    text-shadow:0 0 18px rgba(255,255,255,.4);
+
+}
+
+.show{
+
+    opacity:1 !important;
+
+}
+
+/* ==========================
+   LAST QUESTION
+========================== */
+
+.finalQuestion{
 
     font-family:'Dancing Script',cursive;
 
-    font-size:55px;
+    font-size:60px !important;
 
-    margin-bottom:30px;
-
-    text-shadow:0 0 20px white;
-
-}
-
-#typeText{
-
-    white-space:pre-wrap;
-
-    line-height:2;
-
-    font-size:22px;
-
-    color:#f5f5f5;
+    text-shadow:
+    0 0 15px white,
+    0 0 40px white;
 
 }
 
@@ -110,47 +120,47 @@ padding-bottom:140px;
    BUTTON
 ========================== */
 
-.button-area{
+#buttonContainer{
 
     position:fixed;
 
-    bottom:30px;
+    bottom:60px;
 
     left:50%;
 
     transform:translateX(-50%);
 
-    z-index:999;
+    opacity:0;
+
+    transition:1.5s;
+
+}
+
+#buttonContainer.show{
+
+    opacity:1;
 
 }
 
 #alwaysBtn{
 
-    padding:15px 40px;
+    padding:16px 42px;
 
     border:none;
 
-    border-radius:40px;
-
-    background:rgba(255,255,255,.18);
-
-    backdrop-filter:blur(12px);
-
-    color:white;
+    border-radius:50px;
 
     cursor:pointer;
 
-    font-size:18px;
+    color:white;
 
-    opacity:0;
+    font-size:20px;
+
+    background:rgba(255,255,255,.15);
+
+    backdrop-filter:blur(12px);
 
     transition:.4s;
-
-}
-
-#alwaysBtn.show{
-
-    opacity:1;
 
 }
 
@@ -163,16 +173,16 @@ padding-bottom:140px;
 }
 
 /* ==========================
-   MEMORY SCREEN
+   ENDING
 ========================== */
 
-#memoryScreen{
+#ending{
 
     position:fixed;
 
     inset:0;
 
-    background:rgba(0,0,0,.95);
+    background:rgba(0,0,0,.94);
 
     display:flex;
 
@@ -188,11 +198,11 @@ padding-bottom:140px;
 
     visibility:hidden;
 
-    transition:1.5s;
+    transition:2s;
 
 }
 
-#memoryScreen.show{
+#ending.show{
 
     opacity:1;
 
@@ -208,21 +218,21 @@ padding-bottom:140px;
 
     background:white;
 
-    padding:15px;
+    padding:14px;
 
     border-radius:8px;
 
-    transform:rotate(-4deg);
+    transform:rotate(-5deg);
 
-    box-shadow:0 0 40px rgba(255,255,255,.25);
+    animation:photoZoom 8s ease-in-out infinite;
 
-    animation:zoomPhoto 10s ease-in-out infinite;
+    box-shadow:0 0 35px rgba(255,255,255,.25);
 
 }
 
 .polaroid img{
 
-    width:260px;
+    width:250px;
 
     border-radius:5px;
 
@@ -230,27 +240,29 @@ padding-bottom:140px;
 
 .polaroid p{
 
-    color:black;
+    color:#111;
 
     margin-top:10px;
 
-    font-family:'Dancing Script',cursive;
-
     font-size:28px;
+
+    font-family:'Dancing Script',cursive;
 
 }
 
-#memoryScreen h2{
+#ending h2{
 
     margin-top:35px;
 
-    font-size:30px;
+    font-size:32px;
+
+    line-height:1.7;
 
 }
 
-#memoryScreen p{
+.thanks{
 
-    margin-top:20px;
+    margin-top:25px;
 
     font-size:20px;
 
@@ -258,29 +270,41 @@ padding-bottom:140px;
 
 }
 
-#memoryScreen h3{
+#ending h3{
 
-    margin-top:35px;
+    margin-top:30px;
+
+    font-size:42px;
 
     font-family:'Dancing Script',cursive;
 
-    font-size:40px;
+}
+
+.ps{
+
+    margin-top:30px;
+
+    font-size:18px;
+
+    color:#ffd8ea;
+
+    font-style:italic;
 
 }
 
 /* ==========================
-   HEARTS & KISSES
+   FLOATING EMOJIS
 ========================== */
 
 .float{
 
     position:fixed;
 
-    font-size:28px;
+    bottom:-50px;
 
     pointer-events:none;
 
-    animation:floatUp 4s linear forwards;
+    animation:floatUp 5s linear forwards;
 
 }
 
@@ -294,7 +318,7 @@ padding-bottom:140px;
 
         opacity:.2;
 
-        transform:scale(.7);
+        transform:scale(.8);
 
     }
 
@@ -302,7 +326,7 @@ padding-bottom:140px;
 
         opacity:1;
 
-        transform:scale(1.4);
+        transform:scale(1.5);
 
     }
 
@@ -320,7 +344,7 @@ padding-bottom:140px;
 
     to{
 
-        transform:translateY(-650px);
+        transform:translateY(-900px);
 
         opacity:0;
 
@@ -328,23 +352,23 @@ padding-bottom:140px;
 
 }
 
-@keyframes zoomPhoto{
+@keyframes photoZoom{
 
     0%{
 
-        transform:rotate(-4deg) scale(1);
+        transform:rotate(-5deg) scale(1);
 
     }
 
     50%{
 
-        transform:rotate(-4deg) scale(1.05);
+        transform:rotate(-5deg) scale(1.05);
 
     }
 
     100%{
 
-        transform:rotate(-4deg) scale(1);
+        transform:rotate(-5deg) scale(1);
 
     }
 
@@ -356,15 +380,15 @@ padding-bottom:140px;
 
 @media(max-width:768px){
 
-    #intro{
+    #message{
 
-        font-size:42px;
+        font-size:25px;
 
     }
 
-    #typeText{
+    .finalQuestion{
 
-        font-size:18px;
+        font-size:45px !important;
 
     }
 
@@ -374,22 +398,16 @@ padding-bottom:140px;
 
     }
 
-    #memoryScreen h2{
+    #ending h2{
 
         font-size:24px;
 
     }
 
-    #memoryScreen p{
-
-        font-size:17px;
-
-    }
-
-    #memoryScreen h3{
+    #ending h3{
 
         font-size:34px;
 
     }
 
-  }
+   }
