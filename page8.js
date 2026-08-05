@@ -1,10 +1,10 @@
-// ==========================
-// CREATE STARS
-// ==========================
+// ============================
+// STARRY SKY
+// ============================
 
 const stars = document.getElementById("stars");
 
-for(let i=0;i<200;i++){
+for(let i=0;i<180;i++){
 
     const star=document.createElement("div");
 
@@ -14,82 +14,130 @@ for(let i=0;i<200;i++){
     star.style.top=Math.random()*100+"%";
 
     star.style.animationDuration=
-    (Math.random()*3+2)+"s";
+    (2+Math.random()*3)+"s";
 
     star.style.animationDelay=
-    (Math.random()*3)+"s";
+    Math.random()*3+"s";
 
     stars.appendChild(star);
 
 }
 
-// ==========================
-// TYPEWRITER
-// ==========================
+// ============================
+// ELEMENTS
+// ============================
 
-const typeText=document.getElementById("typeText");
-const alwaysBtn=document.getElementById("alwaysBtn");
+const message=document.getElementById("message");
 
-let i=0;
+const buttonContainer=
+document.getElementById("buttonContainer");
 
-function typeWriter(){
+const alwaysBtn=
+document.getElementById("alwaysBtn");
 
-    if(i<finalMessage.length){
+const ending=
+document.getElementById("ending");
 
-        typeText.textContent+=finalMessage.charAt(i);
+let index=0;
 
-        i++;
+// ============================
+// PLAY SCENES
+// ============================
 
-        setTimeout(typeWriter,45);
+function playScene(){
+
+    message.classList.remove("show");
+
+    setTimeout(()=>{
+
+        message.innerHTML=scenes[index].replace(/\n/g,"<br>");
+
+        if(index===scenes.length-1){
+
+            message.classList.add("finalQuestion");
+
+        }
+
+        else{
+
+            message.classList.remove("finalQuestion");
+
+        }
+
+        message.classList.add("show");
+
+    },800);
+
+    // Last scene
+    if(index===scenes.length-1){
+
+        setTimeout(()=>{
+
+            buttonContainer.classList.add("show");
+
+        },2500);
+
+        return;
 
     }
 
-    else{
+    setTimeout(()=>{
 
-        alwaysBtn.classList.add("show");
+        message.classList.remove("show");
 
-    }
+    },4300);
+
+    index++;
+
+    setTimeout(playScene,5600);
 
 }
 
-setTimeout(typeWriter,1500);
+setTimeout(playScene,1000);
 
-// ==========================
+// ============================
 // ALWAYS BUTTON
-// ==========================
-
-const memoryScreen=document.getElementById("memoryScreen");
+// ============================
 
 alwaysBtn.onclick=()=>{
 
-    // Small vibration (supported devices)
     if(navigator.vibrate){
 
         navigator.vibrate(120);
 
     }
 
-    createFloating();
+    createLoveRain();
 
     setTimeout(()=>{
 
-        memoryScreen.classList.add("show");
+        ending.classList.add("show");
 
-    },2200);
+    },2500);
 
 };
 
-// ==========================
-// FLOATING HEARTS & KISSES
-// ==========================
+// ============================
+// HEART & KISS RAIN
+// ============================
 
-function createFloating(){
+function createLoveRain(){
 
-    const emojis=["❤️","💖","💕","💞","💋","😘","💗"];
+    const emojis=[
 
-    let count=0;
+        "❤️",
+        "💖",
+        "💕",
+        "💞",
+        "💗",
+        "💋",
+        "😘",
+        "💘"
+        ];
 
-    const interval=setInterval(()=>{
+    let amount=0;
+
+    const rain=setInterval(()=>{
 
         const e=document.createElement("div");
 
@@ -98,12 +146,11 @@ function createFloating(){
         e.innerHTML=
         emojis[Math.floor(Math.random()*emojis.length)];
 
-        e.style.left=Math.random()*100+"vw";
-
-        e.style.bottom="-40px";
+        e.style.left=
+        Math.random()*100+"vw";
 
         e.style.fontSize=
-        (20+Math.random()*22)+"px";
+        (22+Math.random()*24)+"px";
 
         document.body.appendChild(e);
 
@@ -111,16 +158,16 @@ function createFloating(){
 
             e.remove();
 
-        },4000);
+        },5000);
 
-        count++;
+        amount++;
 
-        if(count>70){
+        if(amount>=80){
 
-            clearInterval(interval);
+            clearInterval(rain);
 
         }
 
-    },120);
+    },100);
 
 }
