@@ -3,17 +3,18 @@
 
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
 
-    <title>Forever Yours ❤️</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="page8.css">
+<title>Forever ❤️</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="page8.css">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -21,30 +22,19 @@
 
 <!-- Background -->
 
-<div class="background">
+<div id="stars"></div>
 
-    <div id="stars"></div>
+<!-- Main Scene -->
 
-</div>
+<div id="scene">
 
-<!-- Main Message -->
-
-<div class="container">
-
-    <h2 id="intro">
-
-        Before you go...
-
-    </h2>
-
-    <p id="typeText"></p>
+    <h1 id="message"></h1>
 
 </div>
-
 
 <!-- Always Button -->
 
-<div class="button-area">
+<div id="buttonContainer">
 
     <button id="alwaysBtn">
 
@@ -54,35 +44,43 @@
 
 </div>
 
-
 <!-- Final Memory -->
 
-<div id="memoryScreen">
+<div id="ending">
 
     <div class="polaroid">
 
-        <img src="photo10.jpg" alt="Memory">
+        <img src="photo10.jpg">
 
         <p>
 
-            Our favorite memory ❤️
+            Our Favorite Memory ❤️
 
         </p>
 
     </div>
 
-    <h2>
+    <h2 id="endingText">
 
         You're my favorite person...
-        today, tomorrow,
-        and always. ❤️
+
+        <br>
+
+        Today...
+
+        Tomorrow...
+
+        And Always. ❤️
 
     </h2>
 
-    <p>
+    <p class="thanks">
 
         Thank you for loving me...
-        and for letting me love you. 🫶
+
+        <br>
+
+        And for letting me love you. 🫶
 
     </p>
 
@@ -96,54 +94,63 @@
 
     </h3>
 
+    <p class="ps">
+
+        P.S. This isn't the end...
+
+        It's just the beginning of our forever. ❤️
+
+    </p>
+
 </div>
-
-
-<!-- Hidden Final Message -->
 
 <script>
 
-const finalMessage = `
+const scenes=[
 
-Thank you for coming into my life.
+"Before you go...",
 
-Thank you for making my ordinary days feel extraordinary.
+"There's just one more thing I want to tell you...",
 
-You are my safest place,
+`Thank you for coming into my life.
 
-my favorite notification,
+Thank you for making my ordinary days feel extraordinary.`,
 
-my biggest smile,
+`You are my safest place...
 
-and the most beautiful part of my life.
+My favorite notification...
 
-I know I'm not perfect...
+My biggest smile...
 
-But every single day,
+And the most beautiful part of my life.`,
 
-I'll keep trying to love you
+`I know I'm not perfect...
 
-a little better than yesterday.
+But every single day...
 
-When I imagine my future...
+I'll keep trying to love you...
 
-I don't see expensive cars,
+A little better than yesterday.`,
 
-huge houses,
+`When I imagine my future...
 
-or anything fancy.
+I don't see expensive cars...
 
-I just see you beside me.
+Huge houses...
+
+Or anything fancy...`,
+
+`I just see you beside me.
 
 Holding your hand.
 
 Laughing at silly things.
 
-Growing older together.
+Growing older together.`,
 
-That's enough for me.
+`That's enough for me. ❤️`,
 
-If I had to choose all over again...
+`If I had to choose all over again...
 
 I'd still choose you.
 
@@ -151,17 +158,13 @@ Again...
 
 And again...
 
-And every single time. ❤️
+Every single time. ❤️`,
 
+"Will you keep making memories with me? ❤️"
 
-❤️
-
-Will you keep making memories with me?
-
-`;
+];
 
 </script>
-
 
 <script src="page8.js"></script>
 
