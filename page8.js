@@ -39,12 +39,15 @@ document.getElementById("alwaysBtn");
 const ending =
 document.getElementById("ending");
 
+const scene =
+document.getElementById("scene");
+
 
 let index = 0;
 
 
 // ============================
-// PLAY STORY
+// STORY PLAY
 // ============================
 
 function playScene(){
@@ -60,7 +63,8 @@ function playScene(){
         scenes[index].replace(/\n/g,"<br>");
 
 
-        if(index === scenes.length - 1){
+
+        if(index === scenes.length-1){
 
             message.classList.add("finalQuestion");
 
@@ -80,9 +84,9 @@ function playScene(){
 
 
 
-    // Last question
+    // Stop at final message
 
-    if(index === scenes.length - 1){
+    if(index === scenes.length-1){
 
 
         setTimeout(()=>{
@@ -97,23 +101,20 @@ function playScene(){
     }
 
 
-
     index++;
 
 
-    if(index < scenes.length){
-
-        setTimeout(playScene,5600);
-
-    }
+    setTimeout(playScene,5500);
 
 
 }
 
 
+
 // Start story
 
 setTimeout(playScene,1000);
+
 
 
 
@@ -131,36 +132,52 @@ alwaysBtn.onclick = ()=>{
     }
 
 
+
     createLoveRain();
 
 
 
+    // Fade everything away
+
     setTimeout(()=>{
 
 
-        // Hide story
+        scene.style.opacity = "0";
 
-        document.getElementById("scene").style.display="none";
-
-        buttonContainer.style.display="none";
+        buttonContainer.style.opacity = "0";
 
 
 
-        // Show ending
+        setTimeout(()=>{
 
-        ending.classList.add("show");
+
+            scene.style.display="none";
+
+            buttonContainer.style.display="none";
+
+
+            // Show final photo
+
+            ending.classList.add("show");
+
+
+
+        },2000);
 
 
 
     },2500);
 
 
+
 };
 
 
 
+
+
 // ============================
-// LOVE RAIN EFFECT
+// LOVE RAIN
 // ============================
 
 function createLoveRain(){
@@ -180,56 +197,60 @@ function createLoveRain(){
     ];
 
 
-    let amount = 0;
+
+    let count = 0;
+
 
 
     const rain = setInterval(()=>{
 
 
-        const e = document.createElement("div");
+        const heart = document.createElement("div");
 
 
-        e.className = "float";
+        heart.className = "float";
 
 
-        e.innerHTML =
+        heart.innerHTML =
         emojis[Math.floor(Math.random()*emojis.length)];
 
 
 
-        e.style.left =
+        heart.style.left =
         Math.random()*100 + "vw";
 
 
 
-        e.style.fontSize =
+        heart.style.fontSize =
         (22 + Math.random()*24) + "px";
 
 
 
-        document.body.appendChild(e);
+        document.body.appendChild(heart);
 
 
 
         setTimeout(()=>{
 
-            e.remove();
+            heart.remove();
 
         },5000);
 
 
 
-        amount++;
+        count++;
 
 
-        if(amount >= 80){
+        if(count >= 80){
 
             clearInterval(rain);
 
         }
 
 
+
     },100);
+
 
 
 }
